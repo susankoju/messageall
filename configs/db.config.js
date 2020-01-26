@@ -3,6 +3,7 @@ module.exports = {
     // user: process.env.dbUser || 'root',
     // password: process.env.dbPw || '',
     user: 'lusers',
+    password: 'mypassword',
     database: 'messageall',
     insecureAuth: true
 }
