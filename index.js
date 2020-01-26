@@ -18,6 +18,7 @@ app.use(express.urlencoded({
 const clients = require('./configs/clientsStats');
 
 app.use(function (req, res, next) {
+    console.log(req);
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
