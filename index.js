@@ -9,6 +9,10 @@ const API_ROUTE = require('./routes/api.route.js');
 
 
 app.use(cors()); //allow everything
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+})); 
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
