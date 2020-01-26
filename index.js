@@ -7,6 +7,7 @@ const cors= require('cors');
 const PORT = require('./configs/index').port;
 const API_ROUTE = require('./routes/api.route.js');
 
+
 app.use(cors()); //allow everything
 app.use(express.json());
 app.use(express.urlencoded({
@@ -15,6 +16,14 @@ app.use(express.urlencoded({
 
 
 const clients = require('./configs/clientsStats');
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 app.use('/message/send', function (req, res, next) {
     io.emit('broadcast', {
         'clients': clients
