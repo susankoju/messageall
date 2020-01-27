@@ -1,4 +1,4 @@
 module.exports = {
-    port : 4000,
+    port : 80,
     jwtSecret : "kjasdn7612ej*&^kjq2n%kasnd"
 }
