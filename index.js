@@ -13,12 +13,16 @@ app.use(cors()); //allow everything
 //     origin: 'http://localhost:3000',
 //     credentials: true
 // })); 
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
     next();
 });
 app.use(express.json());
@@ -29,12 +33,6 @@ app.use(express.urlencoded({
 
 const clients = require('./configs/clientsStats');
 
-app.use(function (req, res, next) {
-    console.log(req);
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 
 app.use('/message/send', function (req, res, next) {
