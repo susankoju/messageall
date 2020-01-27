@@ -14,8 +14,11 @@ app.use(cors()); //allow everything
 //     credentials: true
 // })); 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://susankoju.github.io"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", '*');
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
     next();
 });
 app.use(express.json());
